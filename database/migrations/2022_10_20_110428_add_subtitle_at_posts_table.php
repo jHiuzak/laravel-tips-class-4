@@ -11,17 +11,13 @@ return new class extends Migration
      *
      * @return void
      */
+
+    // php artisan make:migration add_subtitle_at_posts_table --table=posts to create this alter table migration. Add the function of the migration in its name - rename, add etc.
+
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('author')
-                ->constrained('users')
-                ->cascadeOnDelete();
-            $table->string('title');
-            $table->string('slug');
-            $table->text('content')->nullable();
-            $table->timestamps();
+        Schema::table('posts', function (Blueprint $table) {
+            $table->string('subtitle');
         });
     }
 
@@ -32,6 +28,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropColumn('subtitle');
+        });
     }
 };
