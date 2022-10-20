@@ -17,7 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 // Define translation names in Providers/AppServiceProvider
 Route::resource('usuario', 'App\Http\Controllers\UserController')
     ->names('user')
     ->parameters(['usuario' => 'user']);
+
+Route::resource('postagem', 'App\Http\Controllers\PostController')
+   ->names('post')
+   ->parameters(['postagem' => 'post']);
