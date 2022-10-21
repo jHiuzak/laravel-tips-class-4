@@ -20,6 +20,7 @@
                             <th scope="col">#</th>
                             <th scope="col">Nome</th>
                             <th scope="col">E-mail</th>
+                            <th scope="col">Endereço</th>
                             <th scope="col">Ações</th>
                         </tr>
                         </thead>
@@ -29,6 +30,7 @@
                                     <td>{{ $user->id }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
+                                    <td>{{ $user->address }}</td>
                                     <td>
                                         {{-- <button type="button" class="btn btn-xs btn-primary"><a href="{{ url('/users', $user) }}">Ver</a></button> --}}
                                         <button type="button" class="btn btn-xs btn-primary"><a href="{{ route('user.show', [$user->id]) }}">See</a></button>

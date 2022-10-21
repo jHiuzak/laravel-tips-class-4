@@ -10,7 +10,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    // I can use this method - mass assignment - with an associative array to fill indicate which fields the database may receive, without setting many attributes in the Controller
+    // I can use this method - mass assignment - with an associative array to indicate which fields the database may receive, without setting many attributes in the Controller
     protected $fillable = [
         'title',
         'subtitle',
