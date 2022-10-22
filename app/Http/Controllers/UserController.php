@@ -16,6 +16,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
+
         return view('user/index', [
             'users' => $users
         ]);
@@ -62,8 +63,11 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(User $user){
+        $address = $user->address()->first();
+
         return view('user/show', [
-            'user' => $user
+            'user' => $user,
+            'address' => $address
         ]);
     }
 

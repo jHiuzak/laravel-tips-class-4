@@ -18,12 +18,14 @@
                         <thead>
                         <tr>
                             <th scope="col">E-mail</th>
+                            <th scope="col">Endereço</th>
                             <th scope="col">Data de criação</th>
                         </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>{{ $user->email }}</td>
+                                <td>{{$address->street}}, {{$address->number}}, {{$address->city}}/{{$address->state}}</td>
                                 <td>{{ date('d/m/Y H:i', strtotime($user->created_at)) }}</td>
                             </tr>
                         </tbody>

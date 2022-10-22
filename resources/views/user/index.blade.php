@@ -30,7 +30,7 @@
                                     <td>{{ $user->id }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td>{{ $user->address }}</td>
+                                    <td>Endereço</td>
                                     <td>
                                         {{-- <button type="button" class="btn btn-xs btn-primary"><a href="{{ url('/users', $user) }}">Ver</a></button> --}}
                                         <button type="button" class="btn btn-xs btn-primary"><a href="{{ route('user.show', [$user->id]) }}">See</a></button>
