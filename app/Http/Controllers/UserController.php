@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Address;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
@@ -17,8 +18,11 @@ class UserController extends Controller
     {
         $users = User::all();
 
+        // $addresses = $users->address()->first();
+
         return view('user/index', [
-            'users' => $users
+            'users' => $users,
+            // 'addresses' => $addresses
         ]);
     }
 
@@ -29,6 +33,11 @@ class UserController extends Controller
      */
     public function create()
     {
+        // $addresses = Address::all();
+
+        // return view('user/create', [
+        //     'addresses' => $addresses
+        // ]);
         return view('user/create');
     }
 
@@ -41,6 +50,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = new User();
+
         $user->name = $request->name;
 
         if(filter_var($request->email, FILTER_VALIDATE_EMAIL)){
@@ -63,12 +73,20 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(User $user){
-        $address = $user->address()->first();
+        $address = $user->address()->first(); //It takes the first column found
+        $posts = $user->post()->get();
 
         return view('user/show', [
             'user' => $user,
             'address' => $address
         ]);
+
+        // if($posts){
+        //     echo "<h1>Posts of {$user->name}";
+        //     foreach($posts as $post){
+        //         echo "<p>{$post->id} {$post->title}</p>";
+        //     }
+        // }
     }
 
     /**

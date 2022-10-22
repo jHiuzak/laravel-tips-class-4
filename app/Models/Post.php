@@ -23,4 +23,9 @@ class Post extends Model
         $this->attributes['title'] = $title;
         $this->attributes['slug'] = Str::slug($title);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
