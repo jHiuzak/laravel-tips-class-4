@@ -66,7 +66,16 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        $categories = $post->categories()->get();
+
+        echo"<h1>{$post->title}</h1>";
+        if($categories)
+        {
+            foreach($categories as $category)
+            {
+                echo "<p>{$category->title}</p>";
+            }
+        }
     }
 
     /**

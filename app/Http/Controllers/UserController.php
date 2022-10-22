@@ -74,7 +74,7 @@ class UserController extends Controller
      */
     public function show(User $user){
         $address = $user->address()->first(); //It takes the first column found
-        $posts = $user->post()->get();
+        // $posts = $user->post()->get();
 
         return view('user/show', [
             'user' => $user,
